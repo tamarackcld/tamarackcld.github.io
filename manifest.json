@@ -1,0 +1,18 @@
+{
+    "name": "MCLD Tools",
+    "short_name": "MCLDTools",
+    "start_url": "./index.html",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "white",
+    "description": "Tamarac Assessment Tool",
+    "theme_color": "navy",
+    "icons": [
+      {
+        "src": "/logo512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
+    ]
+  }
