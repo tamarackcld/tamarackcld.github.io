@@ -1,16 +1,13 @@
-cacheName='mcld-v3.5';
+cacheName='tam-v1';
 const URLS = [
   './',
   "./admin_en.html",
-  "./admin_es.html",
   "./admin_fr.html",
   './en.html',
   "./entext.js",
   "./fr.html",
   "./frtext.js",
   "./fullreport.html",
-  "./es.html",
-  "./estext.js",
   './functions.js',
   './index.html',
   './intro_en.html',

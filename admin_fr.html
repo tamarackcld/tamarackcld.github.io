@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- MCLDTools Admin Page in French -->
+<html lang=fr>
+<head>
+    <title>DPC | Fonctions Administratives</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" href="/logo150.png"/>
+	<link rel="apple-touch-icon" href="/logo512.png">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="navy">
+	<link rel="stylesheet" href="/style.css">
+	<script type='text/javascript' src=/functions.js></script>
+</head>
+<body>
+  <nav id="navbar"></nav>
+    <script>cookie=setup();</script>
+    <h1>Fonctions Administratives</h1>
+    <a class=wide href=fullreport.html>Rapport complet</a>
+    <div id=mailbutton></div>
+    <script>putMailButton();</script>
+    <h3>Télécharger les données actuelles dans un fichier json</h3>
+    <a class='wide' href='javascript:downloadCookies();'>Cliquez ici pour télécharger les données</a>
+    <h3>Effacer toutes les données actuelles</h3>
+    <a class='wide' href='javascript:clearCookies();'>Cliquez ici pour effacer toutes les données</a>
+    <h3>Télécharger un fichier json des paramètres précédemment téléchargés</h3>
+    Choisir le fichier: <input type="file" accept="application/json" onchange="readFile(this)"><br>
+    <script>
+        function readFile(input) {
+          let file = input.files[0];
+        
+          let reader = new FileReader();
+        
+          reader.readAsText(file);
+        
+          reader.onload = function() { // ok, the text arrives here and gets processed
+            cookie=JSON.parse(reader.result);
+            for(const property in cookie) { // iterate over the results
+                setCookie(property,cookie[property]);
+            }
+            lang=cookie.lang;
+            if(lang==undefined) lang='fr';
+            location.href=lang+'.html?1'; // jump to basic info
+          };
+        
+          reader.onerror = function() {
+            console.log(reader.error);
+          };
+        
+        }
+        </script>
+
+
+</body>
+</html>

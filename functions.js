@@ -1,7 +1,7 @@
 // This includes all functions called by pages independent of language
 
 // All the initialization for every page
-const version = 'v3.5';
+const version = 'v1';
 var s=""; // this string compiles the output for a given main content div
 function setup() {
   const maxpage = 33; // the highest numbered page supported by en and fr so far
@@ -22,13 +22,13 @@ function setup() {
   }, {});
   // next, output the navbar with the appropriate arrow links in this template
   // note - now in this system, 0=rubric, 1=basics, 2=a1 etc through maxpage
-  now = +window.location.search.substr(1);
+  now = +window.location.search.substring(1,1);
   if (now == undefined) now = 0;
   if (now > maxpage) now = maxpage;
   prior = Math.max(now - 1, 0);
   next = Math.min(now + 1, maxpage);
   lang = cookie.lang;
-  if (lang != 'en' && lang != 'fr' && lang != 'es') { setLang(); lang = 'en'; }
+  if (lang != 'en' && lang != 'fr') { setLang(); lang = 'en'; }
   LANG = lang.toUpperCase();
 
   // The navbar contains inline SVG for efficient icons
@@ -60,7 +60,7 @@ function setup() {
 function setLang() { // for now, this will be a toggle
   olang = cookie.lang;
   if (olang == 'en') { lang = 'fr'; }
-  else if (olang == 'fr') { lang = 'es'; }
+//  else if (olang == 'fr') { lang = 'es'; } // for now no spanish
   else (lang = 'en');
   setCookie('lang', lang);
   location.href = window.location.href.replace(olang, lang);
@@ -113,9 +113,8 @@ function setit(clicked_id) {
   setCookie(cname, x);
 }
 
-function putSelect(fname) { // currently, only allowed per form
-  const arr = basics.options; // option labels are language specific
-  s+= "<div><label>" + basics.select + "<select id='" + fname + "' name='" + fname + "'>\n";
+function putSelect(fname,arr) { // currently, only allowed per form
+  s+= "<div class=wide><label>" + basics[fname] + "<select id='" + fname + "' name='" + fname + "'>\n";
   for (i = 0; i < arr.length; i++) {
     s += "<option value='" + i + "'";
     if (cookie[fname] == i) s += " SELECTED";
@@ -130,12 +129,12 @@ function putDate(fname) {
     let d = new Date().toISOString().slice(0, 10);
     setCookie(fname, d);
   }
-  s+='<input type=date name=' + fname + ' value="' + d + '">';
+  s+='<div class=wide>'+basics[fname]+'<input type=date name=' + fname + ' value="' + d + '"></div>';
 }
 
 function putText(fname) {
   let d = cookie[fname];
-  s += "<p>" + basics[fname] + "</p><textarea class=wide rows=4 width=100%>" + d + "</textarea>\n";
+  s += "<p>" + basics[fname] + "</p><textarea name="+fname+" class=wide rows=4 width=100%>" + d + "</textarea>\n";
 }
 
 function putInput(fname) {
@@ -145,30 +144,24 @@ function putInput(fname) {
   s+=`<input class=wide name="${fname}" placeholder="${placeholder}" value="${val}">`;
 }
 
-function putBasics() {
-  s=`<h1>${basics.h1}</h1>
-  <form id=basics>`;
-  putInput("organization");
-  putInput("program");
-  putInput("country");
-  putInput("region");
-  putSelect('stage');
-  putDate("date");
-  putInput("comment");
-  s+=`<a class=wide href="javascript:saveform('basics');">${basics.save}</a></form>`;
-  document.getElementById("main").innerHTML=s;
-}
-
 function putTamarack() {
   s=`<h1>${basics.h1}</h1>
   <form id=basics>`;
   putInput("organization");
-  s+=dropdowns;
+  putSelect("region",regions);
+  putSelect("level",levels);
+  putSelect("stage",stages);
   putText("program");
   putInput("cldyear");
   putInput("multiyear");
+  s+="<h3>"+basics.subhead+"</h3>\n";
+  putInput("name");
   putDate("date");
-  putInput("comment");
+  putInput("facilitate");
+  putInput("howmany");
+  putInput("stakeholders");
+  putInput("inperson");
+  putInput("howlong");
   s+=`<a class=wide href="javascript:saveform('basics');">${basics.save}</a></form>`;
   document.getElementById("main").innerHTML=s;  
 }

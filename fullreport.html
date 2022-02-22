@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- MCLDTools Admin Page 
+  Factored to put entre page article into a string which could then be downloaded
+-->
+<html lang=en>
+<head>
+    <title>Full Report</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/png" href="/logo150.png"/>
+	<link rel="apple-touch-icon" href="/logo512.png">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="navy">
+	<link rel="stylesheet" href="/style.css">
+	<script type='text/javascript' src=/functions.js></script>
+  <script type='text/javascript' src=/entext.js></script>
+</head>
+<body>
+  <nav id="navbar"></nav>
+
+<script>
+cookie=setup();
+const filename = cookie.date + cookie.program + '.html';
+const reporthead=`<!DOCTYPE html>
+<html><head><style>
+  html {font-family:sans-serif; margin: 0 auto; max-width: 900px;}
+  table, th, td {border: 1px solid navy; border-collapse: collapse; padding:5px;}
+</style></head>
+<body>`;
+</script>
+
+  <h1>Full Report</h1>
+    <a class="wide" href="javascript:download(filename,reporthead+s+'</body></html>')">Click to download report</a> 
+    <div id=main></div>
+<script>
+function putRow(i) {
+  page='p'+i;
+  qname=rubric[page][0];
+  cname=qname.substr(0, 2).toLowerCase();
+  qval=cookie[cname];
+  qcomment=cookie['n'+cname];
+  s+='<tr><td>'+qname+'</td><td>'+qval+'</td><td>'+qcomment+'</td></tr>\n';
+}
+
+function putRows() { for(i=2;i<29;i++) putRow(i); }
+
+s=`<p>Program: ${cookie["program"]}<br>
+Organization: ${cookie["organization"]}<br>
+Country: ${cookie["country"]}<br>
+Region: ${cookie["region"]}<br>
+Stage: ${cookie["stage"]}<br>
+Date: ${cookie["date"]}<br>
+Comment: ${cookie["comment"]}</p>
+<table>
+  <thead><tr><th>Item</th><th>Value</th><th>Comment</th></tr></thead>
+    <tbody>`;
+putRows();
+s+=`  </tbody>    
+</table>`;
+for(p=29;p<34;p++) putResults(p);
+document.getElementById("main").innerHTML=s;
+</script>
+</body>
+</html>
