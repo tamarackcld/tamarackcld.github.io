@@ -22,7 +22,7 @@ function setup() {
   }, {});
   // next, output the navbar with the appropriate arrow links in this template
   // note - now in this system, 0=rubric, 1=basics, 2=a1 etc through maxpage
-  now = +window.location.search.substring(1,1);
+  now = window.location.search.substring(1);
   if (now == undefined) now = 0;
   if (now > maxpage) now = maxpage;
   prior = Math.max(now - 1, 0);
