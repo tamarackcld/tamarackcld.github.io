@@ -1,4 +1,4 @@
-cacheName='tam-v1';
+cacheName='tam-v2';
 const URLS = [
   './',
   "./admin_en.html",
@@ -12,7 +12,8 @@ const URLS = [
   './index.html',
   './intro_en.html',
   './intro_fr.html',
-  './intro_es.html',
+  "./logo.png",
+  "./logofr.png",
   "./logo150.png",
   "./logo512.png",
   "./manifest.json",
