@@ -18,8 +18,22 @@ const basics={
     save:"Save data",
     stage:"Stage of work",
     subhead:"Who is completing this Assessment?",
+    additional:"Additional Comments and Feedback",
+    residents:"How many residents are a part of your planning table?",
+    organizations:"How many organizations are a part of your planning table?",
+    base:"Are you based in an Urban, Rural or Both Community?",
+    interest:"Are you intending to develop a neighborhood strategy or community plan?",
+    popsize:"What is the population size of your community?",
+    dcmcp:"Do you regularly participate in Deepening Communities Membership Community of Practice?",
+    coach:"Do you regularly participate in expert coaching with Tamarack staff (other than your Manager of Cities)?",
+    dcmc:"Do you regularly participate in coaching with a Deepening Community Manager of Cities?",
+    attended:"Have you attended a Deepening Community annual event?",
+    subscribed:"Are you subscribed to the Deepening Community newsletter?"
 }
-
+const yn=["Yes","No"];
+const bases=["Urban","Rural","Both"];
+const interests=["Yes","No","Maybe in the future"];
+const popsizes=["Less than 1000","1,000 to 29,999","30,000 to 99,999","100,000 or more"];
 const regions=["Alberta","British Columbia","Manitoba","New Brunswick",
 "Newfoundland and Labrador","Northwest Territories","Nova Scotia","Nunavut",
 "Ontario","Prince Edward Island","Quebec","Saskatchewan","Yukon"];

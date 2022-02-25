@@ -18,7 +18,22 @@ const basics={
     region:"Province où votre organisation travaille",
     level:"Ce programme ou projet fonctionne-t-il au niveau :",
     subhead:"Qui réalise cette évaluation?",
+    additional:"Commentaires et réactions supplémentaires",
+    residents:"Combien de résident·e·s font partie de votre table de planification?",
+    organizations:"Combien d’organisations font partie de votre table de planification?",
+    base:"Vous trouvez-vous dans une communauté urbaine, rurale ou les deux?",
+    interest:"Vous trouvez-vous dans une communauté urbaine, rurale ou les deux?",
+    popsize:"Combien d’habitant·e·s votre communauté compte-t-elle?",
+    dcmcp:"Participez-vous régulièrement à la communauté de pratique des membres du volet Renforçant la communauté?",
+    coach:"Participez-vous régulièrement à un accompagnement par des expert·e·s avec le personnel de Tamarack (autre que votre chargé·e de programme)? ",
+    dcmc:"Participez-vous régulièrement à un accompagnement avec un chargé·e de programme de l’équipe renforçant la communauté?",
+    attended:"Avez-vous déjà participé à un événement annuel de l’équipe renforçant la communauté?",
+    subscribed:"Êtes-vous abonné·e au bulletin d’informations du volet Renforçant la communauté?"
 }
+const yn=["Oui","Non"];
+const bases=["urbane","ruràle","les deux"];
+const interests=["Oui","Non","Peut-être à l’avenir"];
+const popsizes=["Moins de 1 000","Entre 1 000 et 29 999","Entre 30 000 et 99 999","100,000 et plus"];
 
 const regions=["Alberta","Colombie britannique","Manitoba","Nouveau-Brunswick",
 "Terre-Neuve-et-Labrador","Territoires du nord-ouest","Nouvelle-Écosse",

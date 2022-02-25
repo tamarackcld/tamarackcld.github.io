@@ -143,6 +143,11 @@ function putInput(fname) {
   if (val == undefined) val = '';
   s+=`<input class=wide name="${fname}" placeholder="${placeholder}" value="${val}">`;
 }
+function putNumber(fname){
+  let val = cookie[fname];
+  if(val == undefined) val = 0;
+  s+='<div class=wide>'+basics[fname]+'<input type=number min=0 max=1000 value='+val+"></label></div>\n";
+}
 
 function putTamarack() {
   s=`<h1>${basics.h1}</h1>
@@ -162,6 +167,17 @@ function putTamarack() {
   putInput("stakeholders");
   putInput("inperson");
   putInput("howlong");
+  s+='<h3>'+basics.additional+"</h3>\n";
+  putNumber("residents");
+  putNumber("organizations");
+  putSelect("base",bases);
+  putSelect("interest",interests);
+  putSelect("popsize",popsizes);
+  putSelect("dcmcp",yn);
+  putSelect("coach",yn);
+  putSelect("dcmc",yn);
+  putSelect("attended",yn);
+  putSelect("subscribed",yn);
   s+=`<a class=wide href="javascript:saveform('basics');">${basics.save}</a></form>`;
   document.getElementById("main").innerHTML=s;  
 }
