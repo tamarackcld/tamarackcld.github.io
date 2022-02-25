@@ -23,7 +23,8 @@ function setup() {
   // next, output the navbar with the appropriate arrow links in this template
   // note - now in this system, 0=rubric, 1=basics, 2=a1 etc through maxpage
   now = window.location.search.substring(1);
-  if (now == undefined) now = 0;
+  if((now=='') || isNaN(now))now=0
+  now=parseInt(now);
   if (now > maxpage) now = maxpage;
   prior = Math.max(now - 1, 0);
   next = Math.min(now + 1, maxpage);
@@ -83,7 +84,7 @@ function saveform(formid) {
   Array.from(form.elements).forEach((input) => {
     document.cookie = input.name + '=' + encodeURI(input.value) + ';expires=' + expiry + ';path=/';
   });
-  location="en.html?2";
+  location=lang+".html?"+(now+1);
 }
 
 
