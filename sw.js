@@ -1,4 +1,4 @@
-cacheName='tam-v2';
+cacheName='tam-v3';
 const URLS = [
   './',
   "./admin_en.html",
