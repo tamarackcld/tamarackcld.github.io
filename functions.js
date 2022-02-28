@@ -1,7 +1,7 @@
 // This includes all functions called by pages independent of language
 
 // All the initialization for every page
-const version = 'v3';
+const version = 'v4';
 var s=""; // this string compiles the output for a given main content div
 function setup() {
   const maxpage = 33; // the highest numbered page supported by en and fr so far
@@ -147,7 +147,11 @@ function putInput(fname) {
 function putNumber(fname){
   let val = cookie[fname];
   if(val == undefined) val = 0;
-  s+='<div class=wide>'+basics[fname]+'<input type=number min=0 max=1000 value='+val+"></label></div>\n";
+  s+='<div class=wide>'+basics[fname]+'<input name='+fname+'type=number min=0 max=1000 value='+val+"></label></div>\n";
+}
+
+function putYN(fname){
+  putSelect(fname,yn);
 }
 
 function putTamarack() {
@@ -163,22 +167,22 @@ function putTamarack() {
   s+="<h3>"+basics.subhead+"</h3>\n";
   putInput("name");
   putDate("date");
-  putInput("facilitate");
-  putInput("howmany");
-  putInput("stakeholders");
-  putInput("inperson");
-  putInput("howlong");
+  putNumber("facilitate");
+  putNumber("howmany");
+  putNumber("stakeholders");
+  putYN("inperson");
+  putNumber("howlong");
   s+='<h3>'+basics.additional+"</h3>\n";
   putNumber("residents");
   putNumber("organizations");
   putSelect("base",bases);
   putSelect("interest",interests);
   putSelect("popsize",popsizes);
-  putSelect("dcmcp",yn);
-  putSelect("coach",yn);
-  putSelect("dcmc",yn);
-  putSelect("attended",yn);
-  putSelect("subscribed",yn);
+  putYN("dcmcp");
+  putYN("coach");
+  putYN("dcmc");
+  putYN("attended");
+  putYN("subscribed");
   s+=`<a class=wide href="javascript:saveform('basics');">${basics.save}</a></form>`;
   document.getElementById("main").innerHTML=s;  
 }

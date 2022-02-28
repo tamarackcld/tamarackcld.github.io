@@ -3,6 +3,8 @@
 *::after {
 	box-sizing: border-box;
 }
+
+
 body {padding:1em;font-family:sans-serif;
 	max-width: 700px;
 	margin: 0 auto;
@@ -17,3 +19,5 @@ nav a {color:white; padding:10px; }
 nav a:hover {color:yellow;}
 table, th, td {border: 1px solid navy; border-collapse: collapse; padding:5px}
 .clogo {display:inline-block; margin-left:auto; margin-right:auto; height:70px;}
+
+	
