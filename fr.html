@@ -27,6 +27,8 @@
 		putToc('Informations Générales');
 } else if(p=='1'){
 	putTamarack();
+} else if(p==22 && cookie.orgtype=='0') {
+	putRubric(rubric['g22']);
 } else if(p<29) {
 	putRubric(rubric['p'+p]);
 } else {

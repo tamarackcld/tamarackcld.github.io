@@ -10,28 +10,34 @@ const basics={
     howmany:"Combien de personnes étaient incluses?",
     stakeholders:"quels groupes d’intervenant·e·s représentaient-elles?",
     inperson:"S’agissait-il d’une réunion en ligne ou en personne?",
-    howlong:"Combien de temps l’évaluation a-t-elle pris? (minutes)",
+    howlong:"Combien de temps l’évaluation a-t-elle pris? (heures)",
     cldyear:"Quand votre organisation a-t-elle adopté une approche du travail dirigée par les citoyen·ne·s ou axée sur les acquis? (année)",
     multiyear:"Votre initiative bénéficie-t-elle d’un financement pluriannuel? (Oui/ Non)",
     save:"Sauvegarder les données",
     stage:"Étape du travail",
+    orgtype:"Type d'organisation:",
     region:"Province où votre organisation travaille",
     level:"Ce programme ou projet fonctionne-t-il au niveau :",
     subhead:"Qui réalise cette évaluation?",
     additional:"Commentaires et réactions supplémentaires",
     residents:"Combien de résident·e·s font partie de votre table de planification?",
     organizations:"Combien d’organisations font partie de votre table de planification?",
-    base:"Vous trouvez-vous dans une communauté urbaine, rurale ou les deux?",
+    base:"Vous trouvez-vous dans une communauté urbaine ou rurale?",
     interest:"Vous trouvez-vous dans une communauté urbaine, rurale ou les deux?",
     popsize:"Combien d’habitant·e·s votre communauté compte-t-elle?",
     dcmcp:"Participez-vous régulièrement à la communauté de pratique des membres du volet Renforçant la communauté?",
     coach:"Participez-vous régulièrement à un accompagnement par des expert·e·s avec le personnel de Tamarack (autre que votre chargé·e de programme)? ",
     dcmc:"Participez-vous régulièrement à un accompagnement avec un chargé·e de programme de l’équipe renforçant la communauté?",
     attended:"Avez-vous déjà participé à un événement annuel de l’équipe renforçant la communauté?",
-    subscribed:"Êtes-vous abonné·e au bulletin d’informations du volet Renforçant la communauté?"
+    subscribed:"Êtes-vous abonné·e au bulletin d’informations du volet Renforçant la communauté?",
+    usetool:"Avez-vous utilisé l'outil en une ou plusieurs sessions (veuillez nous dire pourquoi) :"
 }
+const orgtypes=["Gouvernement local/affilié au gouvernement","organisation à but non lucratif/de la société civile."];
+const clickto="Cliquez pour enregistrer le commentaire";
+const comment="Commentaire";
 const yn=["Oui","Non"];
-const bases=["urbane","ruràle","les deux"];
+const howmet=["en ligne","en personne"]
+const bases=["urbane","ruràle"];
 const interests=["Oui","Non","Peut-être à l’avenir"];
 const popsizes=["Moins de 1 000","Entre 1 000 et 29 999","Entre 30 000 et 99 999","100,000 et plus"];
 
@@ -221,6 +227,14 @@ p22:[
 "Le gouvernement du sous-district ou du district est au courant du programme, mais il n'existe pas de plate-forme / espace pour l'interaction entre les structures ou les dirigeants communautaires participatifs et les responsables du sous-district ou du district.",
 "Le gouvernement du sous-district ou du district est au courant du programme, et il y a une interaction ad hoc entre les structures de participation communautaire ou les leaders, Le programme renforce la capacité de la communauté à revendiquer ses droits auprès du gouvernement du sous-district ou du district.",
 "Le gouvernement du sous-district ou du district est au courant du programme DPC. Le programme DPC établit un engagement systématique entre la communauté et le gouvernement du sous-district ou du district pour atteindre les objectifs de la communauté."],
+
+g22:[
+"G1 Le programme DPC est lié à la société civile",
+"Aucune information/insuffisance d'information pour porter un jugement.",
+"Les organisations locales de la société civile (OSC) ne sont pas au courant du programme.",
+"Les organisations de la société civile locale connaissent le programme, mais il n'y a pas de plateforme / d'espace pour l'interaction entre les structures ou les leaders communautaires participatifs, les OSC et les fonctionnaires du sous-district ou du district.",
+"Les OSC locales sont au courant du programme, et il y a une interaction ad hoc entre les structures communautaires participatives, les OSC et les fonctionnaires du sous-district ou du district.",
+"Les OSC locales connaissent le programme DPC. Le programme DPC établit un engagement systématique entre les OSC locales, les structures communautaires et le gouvernement du sous-district ou du district pour atteindre les objectifs communautaires."],
 
 p23:[
 "H1 Un suivi participatif est effectué",
