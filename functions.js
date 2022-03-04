@@ -1,7 +1,7 @@
 // This includes all functions called by pages independent of language
 
 // All the initialization for every page
-const version = 'v5';
+const version = 'v6';
 var s=""; // this string compiles the output for a given main content div
 function setup() {
   const maxpage = 33; // the highest numbered page supported by en and fr so far
@@ -187,7 +187,7 @@ function putTamarack() {
   putNumber("facilitate");
   putNumber("howmany");
   putNumber("stakeholders");
-  putYN("inperson");
+  putSelect("inperson",howmet);
   putNumber("howlong");
   s+='<h3>'+basics.additional+"</h3>\n";
   putNumber("residents");
