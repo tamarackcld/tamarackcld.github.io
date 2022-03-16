@@ -1,7 +1,7 @@
 // This includes all functions called by pages independent of language
 
 // All the initialization for every page
-const version = 'v6';
+const version = 'v7';
 var s=""; // this string compiles the output for a given main content div
 function setup() {
   const maxpage = 33; // the highest numbered page supported by en and fr so far
@@ -149,7 +149,7 @@ function putInput(fname) {
 function putNumber(fname){
   let val = cookie[fname];
   if(val == undefined) val = 0;
-  s+='<div class=wide>'+basics[fname]+'<input name='+fname+'type=number min=0 max=1000 value='+val+"></label></div>\n";
+  s+='<div class=wide>'+basics[fname]+'<input name='+fname+' type=number min=0 max=1000 value='+val+"></label></div>\n";
 }
 
 function putYears(fname,y1) {
@@ -372,7 +372,7 @@ function download(filename, text) {
 }
 
 function downloadCookies() {
-  const filename = cookie.date + cookie.program + '.json';
+  const filename = cookie.date + cookie.organization + '.json';
   const text = JSON.stringify(cookie); // save the global cookie object
   download(filename,text);
 }
