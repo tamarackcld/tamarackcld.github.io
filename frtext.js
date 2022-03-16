@@ -30,12 +30,25 @@ const basics={
     dcmc:"Participez-vous régulièrement à un accompagnement avec un chargé·e de programme de l’équipe renforçant la communauté?",
     attended:"Avez-vous déjà participé à un événement annuel de l’équipe renforçant la communauté?",
     subscribed:"Êtes-vous abonné·e au bulletin d’informations du volet Renforçant la communauté?",
-    usetool:"Avez-vous utilisé l'outil en une ou plusieurs sessions (veuillez nous dire pourquoi) :"
+    usetool:"Avez-vous utilisé l'outil en une ou plusieurs sessions (veuillez nous dire pourquoi) :",
+    which:"Sur quels domaines d'impact votre projet se concentre-t-il ? (choisissez-en autant que nécessaire)",
+    belong:"un sentiment d'appartenance accru",
+    inclusion:"une meilleure inclusion de l'équité",
+    engagement:"un sens approfondi de l'engagement civique",
+    resilience:"renforcement de la résilience de la communauté",
+    safety:"sécurité communautaire accrue",
+    health:"amélioration de la santé et du bien-être de la communauté",
+    food:"investissement dans le capital social et la production alimentaire locale"
 }
+
+const resplan=["Former encore un groupe","1 - 3","4 - 6","7 - 10"];
+
+const orgplan=["Former encore un groupe","1 - 3","4 - 6","7 - 10"];
+
 const orgtypes=["Gouvernement local/affilié au gouvernement","organisation à but non lucratif/de la société civile."];
 const clickto="Cliquez pour enregistrer le commentaire";
 const comment="Commentaire";
-const yn=["Oui","Non"];
+const yn=["Non","Oui"];
 const howmet=["en ligne","en personne","hybride"];
 const bases=["urbane","ruràle"];
 const interests=["Oui","Non","Peut-être à l’avenir"];

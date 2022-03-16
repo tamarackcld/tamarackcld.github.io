@@ -13,6 +13,8 @@ h1 {text-align:center;}
 a {text-decoration:none;}
 .tall {font-size:24px;}
 .wide {display:block;width:100%;padding:5px;border:3px solid navy; margin:5px;}
+.green {display:block;width:100%;padding:5px;background-color:green;color:white;}
+.indent {display:block;width:100%;padding:5px 20px;border:1px solid navy; margin:5px;}
 a.wide { background-color:navy; color:white;}
 nav {display:flex; justify-content: space-between; width:100%; background-color:navy; color:white; font-weight:bold;}
 nav a {color:white; padding:10px; }

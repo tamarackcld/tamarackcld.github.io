@@ -146,6 +146,14 @@ function putInput(fname) {
   if (val == undefined) val = '';
   s+='<label class=wide>'+basics[fname]+'<input name="'+fname+'" value="'+val+'"></label>';
 }
+function putCheck(fname) {
+  let val = cookie[fname];
+  let selected=''; if(val!=1) checked=' SELECTED';
+  s+='<label class=indent>'+basics[fname]+': <select name='+fname+'>';
+  s+='<option value=0'+selected+'>'+yn[0]+"</option>\n";
+  selected=''; if(val==1) checked=' SELECTED';
+  s+='<option value=1'+selected+'>'+yn[1]+"</option></select></label>\n";
+}
 function putNumber(fname){
   let val = cookie[fname];
   if(val == undefined) val = 0;
@@ -160,9 +168,7 @@ function putYears(fname,y1) {
     if (cookie[fname] == i) s += " SELECTED";
     s += ">" + i + "</option>\n";
   }
-  s+= "</select></div>\n";
-
-  
+  s+= "</select></div>\n";  
 }
 
 
@@ -181,18 +187,26 @@ function putTamarack() {
   putText("program");
   putYears("cldyear",1971);
   putYN("multiyear");
-  s+="<h3>"+basics.subhead+"</h3>\n";
+  s+="<h3 class=green>"+basics.subhead+"</h3>\n";
   putInput("name");
   putDate("date");
-  putNumber("facilitate");
+  putInput("facilitate");
   putNumber("howmany");
-  putNumber("stakeholders");
+  putText("stakeholders");
   putSelect("inperson",howmet);
   putNumber("howlong");
-  s+='<h3>'+basics.additional+"</h3>\n";
-  putNumber("residents");
-  putNumber("organizations");
+  s+='<h3 class=green>'+basics.additional+"</h3>\n";
+  putSelect("residents",resplan);
+  putSelect("organizations",orgplan);
   putSelect("base",bases);
+  s+='<p>'+basics.which+"</p>\n";
+  putCheck("belong");
+  putCheck("inclusion");
+  putCheck("engagement");
+  putCheck("resilience");
+  putCheck("safety");
+  putCheck("health");
+  putCheck("food");
   putSelect("interest",interests);
   putSelect("popsize",popsizes);
   putYN("dcmcp");

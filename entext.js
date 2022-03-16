@@ -30,12 +30,25 @@ const basics={
     dcmc:"Do you regularly participate in coaching with a Deepening Community Manager of Cities?",
     attended:"Have you attended a Deepening Community annual event?",
     subscribed:"Are you subscribed to the Deepening Community newsletter?",
-    usetool:"Did you use the tool in a single session or multiple sessions (please tell us why):"
+    usetool:"Did you use the tool in a single session or multiple sessions (please tell us why):",
+    which:"Which areas of impact is your project focused on? (choose as many as apply)",
+    belong:"Increased sense of belonging",
+    inclusion:"improved equity inclusion",
+    engagement:"deepened sense of civic engagement",
+    resilience:"strengthened community resilience",
+    safety:"enhanced community safety",
+    health:"improved community health and wellbeing",
+    food:"investing in social capital and local food production"
 }
+
+const resplan=["Still forming a table","1 - 3","4 - 6","7 - 10"];
+
+const orgplan=["Just forming a table","1 - 3","4 - 6","7 - 10"];
+
 const orgtypes=["Local Government/government affiliate","non-profit/ civil society organization"];
 const clickto="Click to save comment";
 const comment="Comment";
-const yn=["Yes","No"];
+const yn=["No","Yes"];
 const howmet=["online","in person","hybrid"];
 const bases=["Urban","Rural"];
 const interests=["Yes","No","Maybe in the future"];
