@@ -1,7 +1,7 @@
 // This includes all functions called by pages independent of language
 
 // All the initialization for every page
-const version = 'v9';
+const version = 'v10';
 var s=""; // this string compiles the output for a given main content div
 function setup() {
   const maxpage = 33; // the highest numbered page supported by en and fr so far
@@ -118,13 +118,13 @@ function setit(clicked_id) {
 }
 
 function putSelect(fname,arr) { // currently, only allowed per form
-  s+= "<div class=wide><label>" + basics[fname] + ": <select id='" + fname + "' name='" + fname + "'>\n";
+  s+= "<label class=wide>" + basics[fname] + ": <select id='" + fname + "' name='" + fname + "'>\n";
   for (i = 0; i < arr.length; i++) {
     s += "<option value='" + i + "'";
     if (cookie[fname] == i) s += " SELECTED";
     s += ">" + arr[i] + "</option>\n";
   }
-  s+= "</select></div>\n";
+  s+= "</select></label>\n";
 }
 
 function putDate(fname) {
@@ -145,14 +145,6 @@ function putInput(fname) {
   let val = cookie[fname];
   if (val == undefined) val = '';
   s+='<label class=wide>'+basics[fname]+': <input name="'+fname+'" value="'+val+'"></label>';
-}
-function putCheck(fname) {
-  let val = cookie[fname];
-  let selected=''; if(val!=1) checked=' SELECTED';
-  s+='<label class=indent>'+basics[fname]+': <select name='+fname+'>';
-  s+='<option value=0'+selected+'>'+yn[0]+"</option>\n";
-  selected=''; if(val==1) checked=' SELECTED';
-  s+='<option value=1'+selected+'>'+yn[1]+"</option></select></label>\n";
 }
 function putNumber(fname){
   let val = cookie[fname];
@@ -199,14 +191,15 @@ function putTamarack() {
   putSelect("residents",resplan);
   putSelect("organizations",orgplan);
   putSelect("base",bases);
-  s+='<p>'+basics.which+"</p>\n";
-  putCheck("belong");
-  putCheck("inclusion");
-  putCheck("engagement");
-  putCheck("resilience");
-  putCheck("safety");
-  putCheck("health");
-  putCheck("food");
+  s+='<h3 class=green>'+basics.which+"</h3>\n";
+  putYN("belong");
+  putYN("inclusion");
+  putYN("engagement");
+  putYN("resilience");
+  putYN("safety");
+  putYN("health");
+  putYN("food");
+  s+="<hr>\n";
   putSelect("interest",interests);
   putSelect("popsize",popsizes);
   putYN("dcmcp");
