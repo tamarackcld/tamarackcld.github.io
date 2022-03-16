@@ -1,7 +1,7 @@
 // This includes all functions called by pages independent of language
 
 // All the initialization for every page
-const version = 'v7';
+const version = 'v9';
 var s=""; // this string compiles the output for a given main content div
 function setup() {
   const maxpage = 33; // the highest numbered page supported by en and fr so far
@@ -118,7 +118,7 @@ function setit(clicked_id) {
 }
 
 function putSelect(fname,arr) { // currently, only allowed per form
-  s+= "<div class=wide><label>" + basics[fname] + "<select id='" + fname + "' name='" + fname + "'>\n";
+  s+= "<div class=wide><label>" + basics[fname] + ": <select id='" + fname + "' name='" + fname + "'>\n";
   for (i = 0; i < arr.length; i++) {
     s += "<option value='" + i + "'";
     if (cookie[fname] == i) s += " SELECTED";
@@ -133,7 +133,7 @@ function putDate(fname) {
     let d = new Date().toISOString().slice(0, 10);
     setCookie(fname, d);
   }
-  s+='<div class=wide>'+basics[fname]+'<input type=date name=' + fname + ' value="' + d + '"></div>';
+  s+='<div class=wide>'+basics[fname]+': <input type=date name=' + fname + ' value="' + d + '"></div>';
 }
 
 function putText(fname) {
@@ -144,7 +144,7 @@ function putText(fname) {
 function putInput(fname) {
   let val = cookie[fname];
   if (val == undefined) val = '';
-  s+='<label class=wide>'+basics[fname]+'<input name="'+fname+'" value="'+val+'"></label>';
+  s+='<label class=wide>'+basics[fname]+': <input name="'+fname+'" value="'+val+'"></label>';
 }
 function putCheck(fname) {
   let val = cookie[fname];
@@ -157,12 +157,12 @@ function putCheck(fname) {
 function putNumber(fname){
   let val = cookie[fname];
   if(val == undefined) val = 0;
-  s+='<div class=wide>'+basics[fname]+'<input name='+fname+' type=number min=0 max=1000 value='+val+"></label></div>\n";
+  s+='<label class=wide>'+basics[fname]+': <input name='+fname+' type=number min=0 max=1000 value='+val+"></label>\n";
 }
 
 function putYears(fname,y1) {
   const y2=new Date().getFullYear();  
-  s+= "<div class=wide><label>" + basics[fname] + "<select id='" + fname + "' name='" + fname + "'>\n";
+  s+= "<div class=wide><label>" + basics[fname] + ": <select id='" + fname + "' name='" + fname + "'>\n";
   for (i = y1; i < y2; i++) {
     s += "<option value='" + i + "'";
     if (cookie[fname] == i) s += " SELECTED";
