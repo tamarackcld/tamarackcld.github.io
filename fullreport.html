@@ -20,7 +20,7 @@
 
 <script>
 setup();
-const filename = cookie.date + cookie.program + '.html';
+const filename = localStorage.getItem("date") + localStorage.getItem("program") + '.html';
 const reporthead=`<!DOCTYPE html>
 <html><head><style>
   html {font-family:sans-serif; margin: 0 auto; max-width: 900px;}
@@ -37,20 +37,20 @@ function putRow(i) {
   page='p'+i;
   qname=rubric[page][0];
   cname=qname.substr(0, 2).toLowerCase();
-  qval=cookie[cname];
-  qcomment=cookie['n'+cname];
+  qval=localStorage.getItem(cname);
+  qcomment=localStorage.getItem('n'+cname);
   s+='<tr><td>'+qname+'</td><td>'+qval+'</td><td>'+qcomment+'</td></tr>\n';
 }
 
 function putRows() { for(i=2;i<29;i++) putRow(i); }
 
-s=`<p>Program: ${cookie["program"]}<br>
-Organization: ${cookie["organization"]}<br>
-Country: ${cookie["country"]}<br>
-Region: ${cookie["region"]}<br>
-Stage: ${cookie["stage"]}<br>
-Date: ${cookie["date"]}<br>
-Comment: ${cookie["comment"]}</p>
+s=`<p>Program: ${localStorage.getItem("program")}<br>
+Organization: ${localStorage.getItem("organization")}<br>
+Country: ${localStorage.getItem("country")}<br>
+Region: ${localStorage.getItem("region")}<br>
+Stage: ${localStorage.getItem("stage")}<br>
+Date: ${localStorage.getItem("date")}<br>
+Comment: ${localStorage.getItem("comment")}</p>
 <table>
   <thead><tr><th>Item</th><th>Value</th><th>Comment</th></tr></thead>
     <tbody>`;

@@ -1,5 +1,5 @@
 // This includes all functions called by pages independent of language
-// New version that uses localStorage instead of most cookies with v11
+// New version that uses localStorage with v11
 // All the initialization for every page
 const version = 'v11';
 var s=""; // this string compiles the output for a given main content div
@@ -212,7 +212,7 @@ function putRubric(contents) { // Create layout based on an array of options
   s+=str1 + com + str2;
   document.getElementById("main").innerHTML=s;
   // Next, paint the color of the button if preset
-  x = cookie[cname];
+  x = localStorage.getItem(cname);
   if (x > '') document.getElementById(cname + x).style = 'background-color:navy;color:white;';
 
 }
@@ -233,7 +233,7 @@ function computeByDimensions(labels, lengths) {
     scores[i] = 0;
     for (j = 1; j <= lengths[i]; j++) { // which sub dimension
       const cname = labels[i].toLowerCase() + j;
-      let x = +cookie[cname];
+      let x = +localStorage.getItem(cname);
       if (isNaN(x)) x = 0;
       x--;
       if (x < 1) x = 0;
@@ -248,7 +248,7 @@ function computeByDimensions(labels, lengths) {
 function computeScores(labels) {
   let scores = [];
   for (i = 0; i < labels.length; i++) {
-    x = cookie[labels[i].toLowerCase()];
+    x = localStorage.getItem(labels[i].toLowerCase());
     if (isNaN(x)) x = 0; x--; if (x < 1) x = 0;
     scores[i] = Math.floor(100 * x / 3);
   }
@@ -344,11 +344,10 @@ function spider(data, labels) {
 }
 // ADMIN Functions
 function putMailButton(){
-  lang=cookie.lang;
   let msg="Email the data";
   if(lang=='fr') msg='Envoyer les données par e-mail';
   if(lang=='es') msg='Enviar datos por correo electrónico';
-  const text=JSON.stringify(cookie);
+  const text=JSON.stringify(localStorage);
   const button=`<a class=wide target=_blank href='mailto:admin@mcld.org?subject=Data&body=${text}'>${msg}</a>`;
   document.getElementById("mailbutton").innerHTML=button;
 }
@@ -363,16 +362,13 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
-function downloadCookies() {
-  const filename = cookie.date + cookie.organization + '.json';
-  const text = JSON.stringify(cookie); // save the global cookie object
+function downloadStorage() {
+  const filename = localStorage.getItem("date") + localStorage.getItem("organization") + '.json';
+  const text = JSON.stringify(localStorage); 
   download(filename,text);
 }
 
-function clearCookies() {
-  const keys = Object.keys(cookie);
-  for (i = 0; i < keys.length; i++) {
-    document.cookie = keys[i] + "= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-  }
+function clearStorage() {
+  localStorage.clear();
   alert("OK, data cleared");
 }

@@ -20,9 +20,9 @@
     <div id=mailbutton></div>
     <script>putMailButton();</script>
     <h3>Télécharger les données actuelles dans un fichier json</h3>
-    <a class='wide' href='javascript:downloadCookies();'>Cliquez ici pour télécharger les données</a>
+    <a class='wide' href='javascript:downloadStorage();'>Cliquez ici pour télécharger les données</a>
     <h3>Effacer toutes les données actuelles</h3>
-    <a class='wide' href='javascript:clearCookies();'>Cliquez ici pour effacer toutes les données</a>
+    <a class='wide' href='javascript:clearStorage();'>Cliquez ici pour effacer toutes les données</a>
     <h3>Télécharger un fichier json des paramètres précédemment téléchargés</h3>
     Choisir le fichier: <input type="file" accept="application/json" onchange="readFile(this)"><br>
     <script>
@@ -34,11 +34,11 @@
           reader.readAsText(file);
         
           reader.onload = function() { // ok, the text arrives here and gets processed
-            cookie=JSON.parse(reader.result);
-            for(const property in cookie) { // iterate over the results
-                localStorage.setItem(property,cookie[property]);
+            ob=JSON.parse(reader.result);
+            for(const property in ob) { // iterate over the results
+                localStorage.setItem(property,ob[property]);
             }
-            lang=cookie.lang;
+            lang=ob.lang;
             if(lang==undefined) lang='fr';
             location.href=lang+'.html?1'; // jump to basic info
           };

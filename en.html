@@ -15,7 +15,7 @@
 </head>
 <body>
 	<nav id="navbar"></nav>
-	<script>setup(); // read cookies and place navbar</script>
+	<script>setup(); //  and place navbar</script>
 	<script type='text/javascript' src=./entext.js></script>
     <h1>Tamarack CLD Tool</h1>
 	<section id="main"></section>
@@ -27,7 +27,7 @@
 		putToc('Enter Basic Information');
 } else if(p=='1'){ 
 	putTamarack();
-} else if(p==22 && cookie.orgtype=='0') {
+} else if(p==22 && localStorage.getItem("orgtype")=='0') {
 	putRubric(rubric['g22']);
 } else if(p<29) {
 	putRubric(rubric['p'+p]);
