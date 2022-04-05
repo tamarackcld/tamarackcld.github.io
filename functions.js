@@ -1,7 +1,7 @@
 // This includes all functions called by pages independent of language
 // New version that uses localStorage with v11
 // All the initialization for every page
-const version = 'v11';
+const version = 'v12';
 var s=""; // this string compiles the output for a given main content div
 function setup() {
   const maxpage = 33; // the highest numbered page supported by en and fr so far
@@ -366,6 +366,13 @@ function downloadStorage() {
   const filename = localStorage.getItem("date") + localStorage.getItem("organization") + '.json';
   const text = JSON.stringify(localStorage); 
   download(filename,text);
+}
+
+function convert2Storage(){
+  document.cookie.split('; ').reduce((prev, current) => {
+    const [name, value] = current.split('=');
+    localStorage.setItem(name,decodeURI(value));
+  }, {});
 }
 
 function clearStorage() {
