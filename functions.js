@@ -77,7 +77,7 @@ function saveform(formid) {
   Array.from(form.elements).forEach((input) => {
     val=input.value;
     if(val=='undefined') val='';
-    val=val.replace(/[^a-zA-Z0-9 .,]/g, '');
+    val=val.replace(/[^a-zA-Z0-9 -.,]/g, '');
     localStorage.setItem(input.name,val)} );
   location=lang+".html?"+(now+1);
 }
