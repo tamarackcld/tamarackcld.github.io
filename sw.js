@@ -1,8 +1,9 @@
-cacheName='tam-v10';
+cacheName='tam-v11';
 const URLS = [
   './',
   "./admin_en.html",
   "./admin_fr.html",
+  "./dexie.js",
   './en.html',
   "./entext.js",
   "./fr.html",

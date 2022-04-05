@@ -14,7 +14,7 @@
 </head>
 <body>
   <nav id="navbar"></nav>
-    <script>cookie=setup();</script>
+    <script>setup();</script>
     <h1>Fonctions Administratives</h1>
     <a class=wide href=fullreport.html>Rapport complet</a>
     <div id=mailbutton></div>
@@ -36,7 +36,7 @@
           reader.onload = function() { // ok, the text arrives here and gets processed
             cookie=JSON.parse(reader.result);
             for(const property in cookie) { // iterate over the results
-                setCookie(property,cookie[property]);
+                localStorage.setItem(property,cookie[property]);
             }
             lang=cookie.lang;
             if(lang==undefined) lang='fr';

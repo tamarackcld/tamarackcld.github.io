@@ -15,13 +15,13 @@
 </head>
 <body>
 	<nav id="navbar"></nav>
-	<script>cookie=setup(); // read cookies and place navbar</script>
+	<script>setup(); // read cookies and place navbar</script>
 	<script type='text/javascript' src=/frtext.js></script>
     <h1>L'outil d'Évaluation de DPC</h1>
 	<section id="main"></section>
 <script>
 	const p=window.location.search.substr(1);
-	setCookie('pointer',p);
+	localStorage.setItem('pointer',p);
 // routing to different style english pages
 	if(p=='0') { // output the basic rubric
 		putToc('Informations Générales');
