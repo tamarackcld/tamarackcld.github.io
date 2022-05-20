@@ -33,6 +33,7 @@ const reporthead=`<!DOCTYPE html>
     <a class="wide" href="javascript:download(filename,reporthead+s+'</body></html>')">Click to download report</a> 
     <div id=main></div>
 <script>
+  getTamarack();
 function putRow(i) {
   page='p'+i;
   qname=rubric[page][0];
@@ -44,14 +45,7 @@ function putRow(i) {
 
 function putRows() { for(i=2;i<29;i++) putRow(i); }
 
-s=`<p>Program: ${localStorage.getItem("program")}<br>
-Organization: ${localStorage.getItem("organization")}<br>
-Country: ${localStorage.getItem("country")}<br>
-Region: ${localStorage.getItem("region")}<br>
-Stage: ${localStorage.getItem("stage")}<br>
-Date: ${localStorage.getItem("date")}<br>
-Comment: ${localStorage.getItem("comment")}</p>
-<table>
+s+=`<table>
   <thead><tr><th>Item</th><th>Value</th><th>Comment</th></tr></thead>
     <tbody>`;
 putRows();

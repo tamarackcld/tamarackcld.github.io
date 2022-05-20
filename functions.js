@@ -1,7 +1,7 @@
 // This includes all functions called by pages independent of language
 // New version that uses localStorage with v11
 // All the initialization for every page
-const version = 'v13';
+const version = 'v14';
 localStorage.setItem("ver",version);
 var s=""; // this string compiles the output for a given main content div
 function setup() {
@@ -152,6 +152,60 @@ function putYears(fname,y1) {
 
 function putYN(fname){
   putSelect(fname,yn);
+}
+
+function getText(fname){
+  s+=basics[fname]+": "+localStorage.getItem(fname)+"<br>\n";
+}
+function getSelect(fname,arr){
+  val=localStorage.getItem(fname);
+  val2='';
+  if(val) val2=arr[val];
+  s+=basics[fname]+": "+val2+"<br>\n";
+}
+function getYN(fname){
+  getSelect(fname,yn);
+}
+
+function getTamarack() {
+  s='';
+  getText("organization");
+  getSelect("region",regions);
+  getSelect("level",levels);
+  getSelect("stage",stages);
+  getSelect("orgtype",orgtypes);
+  getText("program");
+  getText("cldyear",1971);
+  getYN("multiyear");
+  s+="<h3 class=green>"+basics.subhead+"</h3>\n";
+  getText("name");
+  getText("date");
+  getText("facilitate");
+  getText("howmany");
+  getText("stakeholders");
+  getSelect("inperson",howmet);
+  getText("howlong");
+  s+='<h3 class=green>'+basics.additional+"</h3>\n";
+  getSelect("residents",resplan);
+  getSelect("organizations",orgplan);
+  getSelect("base",bases);
+  s+='<h3 class=green>'+basics.which+"</h3>\n";
+  getYN("belong");
+  getYN("inclusion");
+  getYN("engagement");
+  getYN("resilience");
+  getYN("safety");
+  getYN("health");
+  getYN("food");
+  s+="<hr>\n";
+  getSelect("interest",interests);
+  getSelect("popsize",popsizes);
+  getYN("dcmcp");
+  getYN("coach");
+  getYN("dcmc");
+  getYN("attended");
+  getYN("subscribed");
+  getText("usetool");
 }
 
 function putTamarack() {
