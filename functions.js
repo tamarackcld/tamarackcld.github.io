@@ -1,7 +1,8 @@
 // This includes all functions called by pages independent of language
 // New version that uses localStorage with v11
 // All the initialization for every page
-const version = 'v12';
+const version = 'v13';
+localStorage.setItem("ver",version);
 var s=""; // this string compiles the output for a given main content div
 function setup() {
   const maxpage = 33; // the highest numbered page supported by en and fr so far
@@ -348,7 +349,8 @@ function putMailButton(){
   if(lang=='fr') msg='Envoyer les données par e-mail';
   if(lang=='es') msg='Enviar datos por correo electrónico';
   const text=JSON.stringify(localStorage);
-  const button=`<a class=wide target=_blank href='mailto:admin@mcld.org?subject=Data&body=${text}'>${msg}</a>`;
+  const href1="mailto:admin@mcld.org?subject=Tamarack+Data&body=";
+  const button="<a class=wide href="+href1+encodeURI(text)+">"+msg+"</a>";
   document.getElementById("mailbutton").innerHTML=button;
 }
 
